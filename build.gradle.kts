@@ -17,7 +17,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-tasks.withType<ScalaCompile> { dependsOn(tasks.compileGroovy) }
+tasks.withType<ScalaCompile> {
+    dependsOn(tasks.compileGroovy)
+    scalaCompileOptions.additionalParameters = listOf("-Yresolve-term-conflict:object") // https://stackoverflow.com/questions/8984730/package-contains-object-and-package-with-same-name
+}
 
 
 sourceSets.main {
