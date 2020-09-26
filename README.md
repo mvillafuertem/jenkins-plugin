@@ -17,3 +17,32 @@
 The Project "jenkins-plugin" offers...
 
 ****
+
+```shell script
+
+./gradlew server
+
+```
+
+## Simple Pipeline
+
+```groovy
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello Java') {
+            steps {
+                sayHelloFromJava()
+            }
+        }
+        stage('Hello Scala') {
+            steps {
+                sayHelloFromScala()
+            }
+        }
+    }
+}
+
+```
